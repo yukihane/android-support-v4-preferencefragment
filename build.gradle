@@ -15,6 +15,15 @@ apply plugin: 'maven'
 version = VERSION
 group = GROUP
 
+task sourcesJar(type: Jar) {
+     from android.sourceSets.main.java.srcDirs
+     classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
 dependencies {
     compile 'com.android.support:support-v4:19.0.+'
 }
